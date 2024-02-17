@@ -25,12 +25,12 @@ const options = {
     }
   },
 };
-const fp = flatpickr(input, options); // flatpickr
+const fp = flatpickr(input, options);
 let timer = null;
 
 startBtn.addEventListener('click', () => {
   const selectedDate = fp.selectedDates[0];
-
+  input.disabled = true;
   timer = setInterval(() => {
     let { days, hours, minutes, seconds } = convertMs(
       selectedDate.getTime() - new Date().getTime()
@@ -39,6 +39,7 @@ startBtn.addEventListener('click', () => {
       Math.floor((selectedDate.getTime() - new Date().getTime()) / 1000) <= 0
     ) {
       clearInterval(timer);
+      input.disabled = false;
       Notiflix.Notify.info('Countdown finished!');
     }
     displayDays.textContent = addLeadingZero(days);
