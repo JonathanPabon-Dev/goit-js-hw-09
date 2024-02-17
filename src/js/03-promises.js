@@ -18,9 +18,9 @@ function createPromise(position, delay) {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  delay = parseInt(delayInput.value);
-  step = parseInt(stepInput.value);
-  amount = parseInt(amountInput.value);
+  let delay = parseInt(delayInput.value);
+  let step = parseInt(stepInput.value);
+  let amount = parseInt(amountInput.value);
 
   if (amount > 0) {
     let timer = null;
