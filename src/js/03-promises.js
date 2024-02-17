@@ -29,7 +29,6 @@ form.addEventListener('submit', e => {
       createPromise(position, delay);
       timer = setInterval(() => {
         delay += step;
-        console.log(position);
         position++;
         if (position > amount) {
           clearInterval(timer);
